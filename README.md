@@ -1,274 +1,117 @@
-<div align="center">
+# 🩺 AI-Powered Multi-Disease Prediction System
 
-# 🩺 **AI-Powered Multi-Disease Prediction System**
-<br/>
+A machine learning web application built with Python and Streamlit to demonstrate predictions for five diseases through a single interactive dashboard.
 
-[![Launch App](https://img.shields.io/badge/🚀%20Live%20App-Open%20Dashboard-blueviolet?style=for-the-badge&logo=streamlit&logoColor=white)](https://medical-risk-analyzer-yash.streamlit.app)
+## 🚀 Overview
 
-<br/>
+This project integrates pretrained machine learning models into one application. Users can select a disease module, enter the requested health-related features, and view the model's prediction.
 
-[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML%20Models-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org)
-[![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=for-the-badge&logoColor=white)]()
+### Supported Disease Modules
 
-<br/>
+| Disease | Machine Learning Model | Reported Accuracy |
+|---|---|---:|
+| Diabetes | Support Vector Machine (SVM) | ~77% |
+| Heart Disease | Random Forest Classifier | ~85% |
+| Liver Disease | Gradient Boosting Classifier | ~87% |
+| Kidney Disease | Random Forest Classifier | 100% |
+| Breast Cancer | Random Forest Classifier | ~95% |
 
-> 🏥 **An AI-powered healthcare web app that predicts the risk of 5 diseases using trained ML models.**
-> Integrates multiple predictive models into a single intelligent dashboard for fast, efficient health risk analysis.
+*Note: These accuracy figures are reported by the original project documentation and have not been independently verified. Model performance depends on the dataset, evaluation procedure, and input data.*
 
-> ⚠️ *The app may take a few seconds to load due to free hosting.*
+## ✨ Features
 
-</div>
+- **Multi-disease prediction:** Five disease prediction modules in one application.
+- **Interactive dashboard:** Navigate between disease modules using the sidebar.
+- **Pretrained models:** Load saved machine learning models from the `models/` directory.
+- **Data preprocessing:** Apply the preprocessing implemented for each model.
+- **Prediction results:** Display the model's output through the Streamlit interface.
+- **Modular structure:** Separate training scripts are provided for selected disease models.
 
----
+## 🛠️ Technology Stack
 
-## 🧠 Supported Predictions
-
-<table>
-<tr>
-<td>
-
-🩸 **Diabetes Prediction**
-- Model: Support Vector Machine
-- Accuracy: ~77%
-
-</td>
-<td>
-
-❤️ **Heart Disease Prediction**
-- Model: Random Forest
-- Accuracy: ~85%
-
-</td>
-<td>
-
-🍺 **Liver Disease Prediction**
-- Model: Gradient Boosting
-- Accuracy: ~87%
-
-</td>
-</tr>
-<tr>
-<td>
-
-🧬 **Kidney Disease Prediction**
-- Model: Random Forest
-- Accuracy: 100%
-
-</td>
-<td>
-
-🎗️ **Breast Cancer Detection**
-- Model: Random Forest
-- Accuracy: ~95%
-
-</td>
-<td>
-
-☁️ **Cloud Deployed**
-- Platform: Streamlit Cloud
-- Always accessible
-
-</td>
-</tr>
-</table>
-
----
-
-## 📊 Model Performance
-
-| Disease | Model Used | Accuracy |
-|:--------|:----------:|:--------:|
-| 🩸 Diabetes | Support Vector Machine | ~77% |
-| ❤️ Heart Disease | Random Forest | ~85% |
-| 🍺 Liver Disease | Gradient Boosting | ~87% |
-| 🧬 Kidney Disease | Random Forest | 100% |
-| 🎗️ Breast Cancer | Random Forest | ~95% |
-
----
-
-## ✨ Key Features
-
-<table>
-<tr>
-<td>
-
-**🧠 Multi-Disease Platform**
-- 5 diseases in one dashboard
-- Single unified interface
-- Seamless model switching
-
-</td>
-<td>
-
-**⚡ Real-Time Predictions**
-- Instant ML inference
-- Preprocessing pipeline
-- Pickle model persistence
-
-</td>
-</tr>
-<tr>
-<td>
-
-**📊 Interactive UI**
-- Clean Streamlit interface
-- Feature input validation
-- Visual result display
-
-</td>
-<td>
-
-**🏗️ Scalable Architecture**
-- Modular model structure
-- Easy to extend
-- Cloud deployment ready
-
-</td>
-</tr>
-</table>
-
----
+- **Language:** Python
+- **Web framework:** Streamlit
+- **Machine learning:** Scikit-learn, XGBoost
+- **Data processing:** NumPy, Pandas
+- **Model persistence:** Pickle
+- **Version control:** Git and GitHub
 
 ## 🏗️ System Architecture
 
-```
-User Input (Streamlit UI)
-        │
-        ▼
+```text
+User
+  |
+  v
+Streamlit Dashboard
+  |
+  v
+Select Disease Module
+  |
+  v
+Enter Input Features
+  |
+  v
 Data Preprocessing
-(Scaling + Feature Alignment)
-        │
-        ▼
-Machine Learning Model
-(SVM / Random Forest / Gradient Boosting)
-        │
-        ▼
-Prediction Output
-        │
-        ▼
-UI Display (Risk Result)
+  |
+  v
+Load Trained ML Model
+  |
+  v
+Generate Prediction
+  |
+  v
+Display Result
 ```
-
----
 
 ## 📂 Project Structure
 
-```
-Multi_Disease_Prediction_System/
-│
-├── 📄 app.py                         # Main Streamlit application
-│
-├── 🏋️ train_diabetes_model.py        # Diabetes model training
-├── 🏋️ train_heart_model.py           # Heart disease model training
-├── 🏋️ train_liver_model.py           # Liver disease model training
-├── 🏋️ train_kidney_model.py          # Kidney disease model training
-├── 🏋️ train_breast_cancer_model.py   # Breast cancer model training
-│
-├── 📁 datasets/                      # Raw training datasets
-├── 🧠 models/                        # Saved Pickle model files
-│
-├── 📋 requirements.txt               # Python dependencies
-└── 📖 README.md
+```text
+disease-prediction/
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── datasets/
+├── models/
+├── train_breast_cancer_model.py
+├── train_heart_model.py
+├── train_kidney_model.py
+├── train_liver_model.py
+└── train_models.py
 ```
 
----
+The `datasets/` directory contains the available datasets, while `models/` contains saved model files used by the application.
 
-## 🛠️ Tech Stack
+## 💻 Installation and Setup
 
-| Layer | Technology |
-|:------|:-----------|
-| 🐍 Language | Python 3.10 |
-| 📊 Data | NumPy · Pandas |
-| 🤖 ML Models | Scikit-learn · XGBoost |
-| 🌐 Frontend | Streamlit |
-| 💾 Persistence | Pickle |
-| 🔧 Tools | Git · GitHub |
+### Prerequisites
 
----
+- Python 3.10 or a compatible Python version
+- Git
+- Internet access for installing dependencies
 
-## 🚀 Getting Started
-
-### 1️⃣ Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yashrajagawane/Multi-Disease-Prediction-System.git
-cd Multi-Disease-Prediction-System
+git clone https://github.com/spandey009/disease-prediction.git
+cd disease-prediction
 ```
 
-### 2️⃣ Create & Activate Virtual Environment
+### 2. Create a virtual environment
 
-```bash
-# Create
-python -m venv venv
+**Windows PowerShell:**
 
-# Activate — Windows
-venv\Scripts\activate
-
-# Activate — macOS / Linux
-source venv/bin/activate
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
-### 3️⃣ Install Dependencies
+### 3. Install dependencies
 
-```bash
-pip install -r requirements.txt
+Upgrade pip:
+
+```powershell
+python -m pip install --upgrade pip
 ```
 
-### 4️⃣ Run the Application
-
-```bash
-streamlit run app.py
-```
-
----
-
-## 🎯 Use Cases
-
-- 🏥 **Healthcare risk analysis** — quick screening for patients
-- 🧪 **Medical research** — support and data exploration
-- 📊 **Early detection** — flag disease risk before symptoms
-- 🤖 **Clinical decision support** — AI-assisted diagnosis aid
-
----
-
-## 🔮 Roadmap
-
-- [ ] 🚀 API-based deployment with FastAPI
-- [ ] 🔐 User authentication system
-- [ ] 📋 Patient history tracking
-- [ ] 📈 Prediction confidence visualization
-- [ ] 📱 Mobile-responsive UI improvements
-- [ ] 🧬 Deep learning model integration
-
----
-
-<div align="center">
-
-## 👨‍💻 Author
-
-**Yashraj Agawane**
-
-🎓 B.Tech Student &nbsp;|&nbsp; 💡 Machine Learning Enthusiast
-
-*Passionate about building scalable AI-driven applications and solving real-world problems using Machine Learning & Data Structures.*
-
-<br/>
-
-[![GitHub](https://img.shields.io/badge/GitHub-yashrajagawane-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashrajagawane)
-[![Email](https://img.shields.io/badge/Email-agawaneyash865@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:agawaneyash865@gmail.com)
-
----
-
-### ⭐ Found this helpful?
-
-**Star the repo** — it takes one click and means a lot!
-
-[![Star on GitHub](https://img.shields.io/github/stars/yashrajagawane/Multi-Disease-Prediction-System?style=social)](https://github.com/yashrajagawane/Multi-Disease-Prediction-System)
-
-<br/>
-
-*Built with ❤️ to make healthcare more accessible*
-
-</div>
+The supplied `requirements.txt` may need to be decoded if it is saved in UTF-16 encoding. To create a temporary UTF-8 copy on Windows PowerShell without
